@@ -52,7 +52,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					17: []string{ 
+					16: []string{ 
 						"post",
 					},
 				},
@@ -62,7 +62,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					21: []string{ 
+					20: []string{ 
 					},
 				},
 			},
@@ -145,8 +145,8 @@ func main() {
 	
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
 		"thought_books/app/controllers.Post.Create": { 
-			27: "title",
-			28: "content",
+			25: "title",
+			26: "content",
 		},
 	}
 	testing.TestSuites = []interface{}{ 
