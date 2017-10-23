@@ -1,17 +1,6 @@
-# Welcome to Revel
+# Welcome Thought Books
 
-A high-productivity web framework for the [Go language](http://www.golang.org/).
-
-
-### Start the web server:
-
-   revel run myapp
-
-### Go to http://localhost:9000/ and you'll see:
-
-    "It works"
-
-## Code Layout
+Share Ideas, collaborate,expand
 
 The directory structure of a generated Revel application:
 
