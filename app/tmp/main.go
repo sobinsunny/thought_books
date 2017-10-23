@@ -144,6 +144,10 @@ func main() {
 		})
 	
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
+		"thought_books/app/controllers.Post.Create": { 
+			27: "title",
+			28: "content",
+		},
 	}
 	testing.TestSuites = []interface{}{ 
 		(*tests.AppTest)(nil),

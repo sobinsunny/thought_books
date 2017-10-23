@@ -1,7 +1,10 @@
 package app
 
 import (
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/revel/revel"
+	"thought_books/app/models"
 )
 
 var (
@@ -9,6 +12,8 @@ var (
 	AppVersion string
 
 	// BuildTime revel app build-time (ldflags)
+	Gorm gorm.DB
+
 	BuildTime string
 )
 
@@ -35,6 +40,7 @@ func init() {
 	// revel.OnAppStart(ExampleStartupScript)
 	// revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
+	revel.OnAppStart(InitDB)
 }
 
 // HeaderFilter adds common security headers
@@ -47,6 +53,18 @@ var HeaderFilter = func(c *revel.Controller, fc []revel.Filter) {
 	c.Response.Out.Header().Add("X-Content-Type-Options", "nosniff")
 
 	fc[0](c, fc[1:]) // Execute the next filter stage.
+}
+
+func InitDB() {
+	db, err := gorm.Open("postgres", "host=localhost  dbname=thought_books_dev_db sslmode=disable")
+	Gorm.LogMode(true)
+
+	if err != nil {
+		panic("failed to connect database")
+	}
+	// Migrate the schema
+	db.AutoMigrate(&models.Post{})
+	defer db.Close()
 }
 
 //func ExampleStartupScript() {
