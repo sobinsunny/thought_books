@@ -45,7 +45,7 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers.Post)(nil),
+	revel.RegisterController((*controllers.PostController)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "Index",
@@ -144,7 +144,7 @@ func main() {
 		})
 	
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
-		"thought_books/app/controllers.Post.Create": { 
+		"thought_books/app/controllers.PostController.Create": { 
 			25: "title",
 			26: "content",
 		},

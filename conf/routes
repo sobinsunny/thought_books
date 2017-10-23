@@ -14,9 +14,9 @@ GET     /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/*filepath                       Static.Serve("public")
-GET     /posts 									Post.Index
-GET     /posts/:new 							Post.New
-POST    /posts 									Post.Create
+GET     /posts 									PostController.Index
+GET     /posts/:new 							PostController.New
+POST    /posts 									PostController.Create
 
 
 # Catch all

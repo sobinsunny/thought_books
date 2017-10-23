@@ -16,25 +16,25 @@ func (_ tApp) Index(
 }
 
 
-type tPost struct {}
-var Post tPost
+type tPostController struct {}
+var PostController tPostController
 
 
-func (_ tPost) Index(
+func (_ tPostController) Index(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Post.Index", args).URL
+	return revel.MainRouter.Reverse("PostController.Index", args).URL
 }
 
-func (_ tPost) New(
+func (_ tPostController) New(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("Post.New", args).URL
+	return revel.MainRouter.Reverse("PostController.New", args).URL
 }
 
-func (_ tPost) Create(
+func (_ tPostController) Create(
 		title string,
 		content string,
 		) string {
@@ -42,7 +42,7 @@ func (_ tPost) Create(
 	
 	revel.Unbind(args, "title", title)
 	revel.Unbind(args, "content", content)
-	return revel.MainRouter.Reverse("Post.Create", args).URL
+	return revel.MainRouter.Reverse("PostController.Create", args).URL
 }
 
 
